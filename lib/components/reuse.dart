@@ -16,9 +16,11 @@ class Pasien {
   final String tanggal;
   final String jam;
   final String kontak;
-  final bool status;
+  final String status;
+  final bool isDone;
 
-  Pasien(this.nama, this.tanggal, this.jam, this.kontak, this.status);
+  Pasien(
+      this.nama, this.tanggal, this.jam, this.kontak, this.status, this.isDone);
 }
 
 TextFormField formTextField(

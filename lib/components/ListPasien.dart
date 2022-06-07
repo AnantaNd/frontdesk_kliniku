@@ -11,10 +11,12 @@ class ListPasien extends StatefulWidget {
 
 class _ListPasienState extends State<ListPasien> {
   List<Pasien> _pasien = [
-    Pasien('Asep', 'Senin, 10-12', '08.00-12.00', '0812121212', true),
-    Pasien('joni', 'Senin, 10-12', '08.00-12.00', '0812121212', true),
-    Pasien('shin', 'Senin, 10-12', '08.00-12.00', '0812121212', true),
-    Pasien('jojo', 'Senin, 10-12', '08.00-12.00', '0812121212', true),
+    Pasien('Asep', 'Senin, 10-12', '08.00-12.00', '0812121212', 'acc', true),
+    Pasien(
+        'joni', 'Senin, 10-12', '08.00-12.00', '0812121212', 'panding', true),
+    Pasien('shin', 'Senin, 10-12', '08.00-12.00', '0812121212', 'acc', true),
+    Pasien(
+        'jojo', 'Senin, 10-12', '08.00-12.00', '0812121212', 'panding', true),
   ];
 
   List<Pasien> _foundPasien = [];
@@ -34,6 +36,29 @@ class _ListPasienState extends State<ListPasien> {
           .toList();
     });
   }
+
+  final cancleBtn = ElevatedButton(
+    onPressed: () {},
+    child: Text(
+      'Cancel',
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+      ),
+    ),
+    style: ButtonStyle(
+      overlayColor: MaterialStateProperty.all(Colors.red[900]),
+      foregroundColor: MaterialStateProperty.all(Colors.white),
+      backgroundColor: MaterialStateProperty.all(Colors.red[400]),
+      minimumSize: MaterialStateProperty.all(const Size(200, 40)),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -82,23 +107,14 @@ class _ListPasienState extends State<ListPasien> {
 
 PasienComponent({required Pasien pasien}) {
   return Container(
-    margin: EdgeInsets.only(bottom: 20),
-    padding: EdgeInsets.only(bottom: 20),
+    margin: EdgeInsets.only(top: 20),
+    padding: EdgeInsets.only(bottom: 15, top: 15, left: 30),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(20),
-      color: Colors.white,
+      color: Color.fromARGB(255, 232, 232, 232),
     ),
     child: Row(
       children: <Widget>[
-        Container(
-          width: 50,
-          height: 50,
-          margin: EdgeInsets.only(right: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.grey[200],
-          ),
-        ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -112,18 +128,75 @@ PasienComponent({required Pasien pasien}) {
             Text(
               pasien.tanggal,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 16,
                 color: Colors.grey,
               ),
             ),
             Text(
               pasien.jam,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 16,
                 color: Colors.grey,
               ),
             ),
+            Text(
+              pasien.status,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.red,
+              ),
+            ),
           ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 40),
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              'acc',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w200,
+              ),
+            ),
+            style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(Colors.blue[800]),
+              backgroundColor: MaterialStateProperty.all(Colors.blue),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+              minimumSize: MaterialStateProperty.all(const Size(20, 10)),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              'delete',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w200,
+              ),
+            ),
+            style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(Colors.red[900]),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+              backgroundColor: MaterialStateProperty.all(Colors.red[400]),
+              minimumSize: MaterialStateProperty.all(const Size(20, 10)),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+          ),
         ),
       ],
     ),
