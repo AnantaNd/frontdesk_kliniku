@@ -11,6 +11,16 @@ class Dokter {
   Dokter(this.nama, this.spesialis, this.tanggal, this.jam, this.kontak);
 }
 
+class Pasien {
+  final String nama;
+  final String tanggal;
+  final String jam;
+  final String kontak;
+  final bool status;
+
+  Pasien(this.nama, this.tanggal, this.jam, this.kontak, this.status);
+}
+
 TextFormField formTextField(
   String label,
   TextEditingController controller,

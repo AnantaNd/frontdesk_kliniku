@@ -37,29 +37,6 @@ class _JadwalDokterState extends State<JadwalDokter> {
     });
   }
 
-  final deleteBtn = ElevatedButton(
-    onPressed: () {},
-    child: Text(
-      'Delete',
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: FontWeight.w400,
-      ),
-    ),
-    style: ButtonStyle(
-      overlayColor: MaterialStateProperty.all(Colors.red[900]),
-      foregroundColor: MaterialStateProperty.all(Colors.white),
-      backgroundColor: MaterialStateProperty.all(Colors.red[400]),
-      minimumSize: MaterialStateProperty.all(const Size(200, 40)),
-      shape: MaterialStateProperty.all(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
